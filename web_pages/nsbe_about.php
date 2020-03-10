@@ -14,9 +14,16 @@
 		$mysqli = new mysqli('localhost','root','','crud') or die(mysqli_error($mysqli));
 		$result = $mysqli->query("SELECT * FROM page_data") or die($mysqli->error);
 	?>
-	<ul>
-		
-	</ul>
+	<div id="tabs">
+		<nav class="nav">
+			<li class="nav-item">
+				<a class="nav-link disabled" href="#">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">About</a>
+			</li>
+		</nav>
+	</div>
 <table class="table">
 	<!--thead>
 			<tr>
