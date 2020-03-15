@@ -30,7 +30,7 @@
 			</li>
 		</nav>
 	</div>
-<table class="table">
+<table class="table table-borderless">
 	<!--thead>
 			<tr>
 				<th class="row justify-content-center">Heading</th>
