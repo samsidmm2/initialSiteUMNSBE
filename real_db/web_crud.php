@@ -24,7 +24,7 @@
 	<div class="container">
 	<?php 
 		$mysqli = new mysqli('localhost','root','','crud') or die(mysqli_error($mysqli));
-		$result = $mysqli->query("SELECT * FROM page_data") or die($mysqli->error);
+		$result = $mysqli->query("SELECT * FROM page_data") or die($mysqli->error); //for about page
 		//pre_r($result);
 		//pre_r($result->fetch_assoc());
 		//pre_r($result->fetch_assoc());
@@ -36,7 +36,7 @@
 		<div class="row">
 			<br>
 			<br>
-			<!--For About Page-->
+			<!--Beginning of the About Page components-->
 			<h2>For About Page</h2>
 			<table class="table">
 				<thead>
@@ -73,12 +73,13 @@
 	<form action="web_process.php" method="POST">
 		<input type="hidden" name="id" value="<?php echo $id; ?>">
 			<div class="form-group">
+				<!--For About Page-->
 				<label>Heading</label>
-				<input type="text" name="heading" class="form-control" value="<?php echo $heading; ?>" placeholder="Enter the heading">
+				<input type="text" name="heading" class="form-control" value="<?php echo $heading; ?>" placeholder="Enter the heading for the About Page">
 			</div>
 			<div class="form-group">
 				<label>Paragraph</label>
-				<textarea name="paragraph" class="form-control form-control-lg" value="<?php echo $paragraph; ?>" placeholder="Enter the paragraph"></textarea>
+				<textarea name="paragraph" class="form-control form-control-lg" value="<?php echo $paragraph; ?>" placeholder="Enter the paragraph for the About Page"></textarea>
 			</div>
 			<div class="form-group">
 			<?php 
@@ -89,9 +90,14 @@
 			<button type="submit" class="btn btn-primary" name="save">Save</button>
 		<?php endif; ?>
 		</div>
-
 		</form>
 	</div>
+<!-- end of the About Page Components-->
+			<br>
+			<br>
+			<!--Beginning of the Membnership Page components-->
+			<h2>For Membership Page</h2>
+
 	</div>
 </body>
 </html>
