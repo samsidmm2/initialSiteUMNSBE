@@ -97,17 +97,43 @@
 			<br>
 			<!--Beginning of the Membnership Page components-->
 			<div id="memberships_components">
+
+
 				<h2>For Membership Page</h2>
+				<table class="table">
+				<thead>
+					<tr>
+						<th>Heading</th>
+						<th>Paragraph</th>
+						<th colspan="2">Action</th>
+					</tr>
+				</thead>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 				<form method="POST" action="">
 					<input  type="" name="" value="">
 					<div class="form-group">
 						<label>Heading</label>
-						<input type="text" name="heading" class="form-control">
+						<input type="text" name="mem_heading" class="form-control">
 					</div>
 					<div class="form-group">
 						<label for="my-input">Paragraph</label>
 						<input id="my-input" class="form-control" type="text" name="">
-						<textarea name="paragraph"  class="form-control form-control-lg" id=""></textarea>
+						<textarea name="mem_paragraph" class="form-control form-control-lg" id=""></textarea>
 					</div>
 
 					
