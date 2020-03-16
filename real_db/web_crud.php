@@ -96,9 +96,9 @@
 			<br>
 			<br>
 			<!--Beginning of the Membnership Page components-->
-			<div id="memberships_components">
-
-
+			<div class="row" id="memberships_components">
+			<br>
+			<br>
 				<h2>For Membership Page</h2>
 				<table class="table">
 				<thead>
@@ -109,33 +109,40 @@
 					</tr>
 				</thead>
 
+				<?php
+				while ($row = $result->fetch_assoc()): ?>
+					<tr>
+						<td><?php echo $row['mem_heading']; ?></td>
+						<td><?php echo $row['mem_paragraph']; ?></td>
+						<td>
+							<a href="web_crud.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Edit</a>
+							<a href="web_process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
+						</td>	
+					</tr>
+			<?php endwhile; ?>		
+			</table>
+	<!--?php 
+		function pre_r( $array ) {
+		echo '<pre>';
+		print_r($array);
+		echo '</pre>';	
+		}
+		?--->
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+			<div class="justify-content-center">
 				<form method="POST" action="">
-					<input  type="" name="" value="">
+					<input type="hidden" name="id" value="">
 					<div class="form-group">
 						<label>Heading</label>
 						<input type="text" name="mem_heading" class="form-control">
 					</div>
 					<div class="form-group">
 						<label for="my-input">Paragraph</label>
-						<input id="my-input" class="form-control" type="text" name="">
 						<textarea name="mem_paragraph" class="form-control form-control-lg" id=""></textarea>
 					</div>
-
+			</div>
 					
 				</form>
 			</div>
