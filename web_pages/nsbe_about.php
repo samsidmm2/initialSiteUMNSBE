@@ -30,6 +30,7 @@
 			</li>
 		</nav>
 	</div>
+	<div id ="about-table">
 <table class="table table-borderless">
 	<!--thead>
 			<tr>
@@ -47,6 +48,7 @@
 		<?php endwhile; ?>	
 
 </table>
+</div>
 </div>
 </body>
 </html>

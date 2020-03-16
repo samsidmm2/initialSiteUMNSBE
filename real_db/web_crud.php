@@ -96,8 +96,23 @@
 			<br>
 			<br>
 			<!--Beginning of the Membnership Page components-->
-			<h2>For Membership Page</h2>
+			<div id="memberships_components">
+				<h2>For Membership Page</h2>
+				<form method="POST" action="">
+					<input  type="" name="" value="">
+					<div class="form-group">
+						<label>Heading</label>
+						<input type="text" name="heading" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="my-input">Paragraph</label>
+						<input id="my-input" class="form-control" type="text" name="">
+						<textarea name="paragraph"  class="form-control form-control-lg" id=""></textarea>
+					</div>
 
+					
+				</form>
+			</div>
 	</div>
 </body>
 </html>
