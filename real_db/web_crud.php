@@ -95,6 +95,7 @@
 <!-- end of the About Page Components-->
 			<br>
 			<br>
+			<!--------------------------------------------------------------------------------------------------------------------------------->
 			<!--Beginning of the Membnership Page components-->
 			<div class="row" id="memberships_components">
 			<br>
@@ -121,6 +122,7 @@
 					</tr>
 			<?php endwhile; ?>		
 			</table>
+			</div>
 	<!--?php 
 		function pre_r( $array ) {
 		echo '<pre>';
@@ -130,19 +132,28 @@
 		?--->
 
 			<div class="justify-content-center">
-				<form method="POST" action="">
-					<input type="hidden" name="id" value="" >
+				<form method="POST" action="web_process.php">
+					<input type="hidden" name="id" value="<?php echo $id; ?>" >
 					<div class="form-group">
 						<label>Heading</label>
-						<input type="text" name="mem_heading" class="form-control" placeholder="Enter the heading for the Membership Page">
+						<input type="text" name="mem_heading" class="form-control" value="<?php echo $mem_heading; ?>" placeholder="Enter the heading for the Membership Page">
 					</div>
 					<div class="form-group">
-						<label for="my-input">Paragraph</label>
-						<textarea name="mem_paragraph" class="form-control form-control-lg" id="" placeholder="Enter the paragraph for the Membership Page" ></textarea>
+						<label>Paragraph</label>
+						<textarea name="mem_paragraph" class="form-control form-control-lg" value="<?php echo $mem_paragraph; ?>" placeholder="Enter the paragraph for the Membership Page" ></textarea>
 					</div>
-			</div>
-					
+					<div class="form-group">
+					<?php 
+					if ($update == true):
+						?>
+						<button type="submit" class="btn btn-info" name="update">Update</button>
+					<?php else: ?>
+					<button type="submit" class="btn btn-primary" name="save">Save</button>
+					<?php endif; ?>
+					</div>
 				</form>
+			</div>		
+				
 			</div>
 	</div>
 </body>
