@@ -129,18 +129,16 @@
 		}
 		?--->
 
-
-
 			<div class="justify-content-center">
 				<form method="POST" action="">
-					<input type="hidden" name="id" value="">
+					<input type="hidden" name="id" value="" >
 					<div class="form-group">
 						<label>Heading</label>
-						<input type="text" name="mem_heading" class="form-control">
+						<input type="text" name="mem_heading" class="form-control" placeholder="Enter the heading for the Membership Page">
 					</div>
 					<div class="form-group">
 						<label for="my-input">Paragraph</label>
-						<textarea name="mem_paragraph" class="form-control form-control-lg" id=""></textarea>
+						<textarea name="mem_paragraph" class="form-control form-control-lg" id="" placeholder="Enter the paragraph for the Membership Page" ></textarea>
 					</div>
 			</div>
 					
