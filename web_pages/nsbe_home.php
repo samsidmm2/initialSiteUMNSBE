@@ -3,10 +3,9 @@
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>About Us</title>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<title></title>
+	<title>Home Page</title>
 </head>
 <body>
 	<div class="container">
@@ -17,18 +16,21 @@
 	<div id="tabs">
 		<nav class="nav">
 			<li class="nav-item">
-				<a class="nav-link disabled" href="#">Home</a>
+				<a class="nav-link" href="http://localhost/nsbe_db/web_pages/nsbe_home.php">Home</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link disabled" href="#">About</a>
+				<a class="nav-link" href="http://localhost/nsbe_db/web_pages/nsbe_about.php">About</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link disabled" href="#">Membership</a>
+				<a class="nav-link" href="http://localhost/nsbe_db/web_pages/nsbe_memshippage.php">Membership</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contact</a>
+				<a class="nav-link" href="http://localhost/nsbe_db/web_pages/nsbe_contact.php" tabindex="-1" aria-disabled="true">Contact</a>
 			</li>
 		</nav>
+	</div>
+		<div>
+		<h1 class="justify-content-center">Welcome to the Ole Miss NSBE Chapter Website</h1>
 	</div>
 	<div id ="home-table">
 <table class="table table-borderless">
@@ -42,6 +44,7 @@
 	<?php
 	while ($row = $result->fetch_assoc()): ?>
 		<tr>
+			<td class="row justify-content-center"><?php echo $row['home_image']; ?></td>
 			<td class="row justify-content-center"><?php echo $row['home_heading']; ?></td>
 			<td class="row"><?php echo $row['home_paragraph']; ?></td>
 			</tr>

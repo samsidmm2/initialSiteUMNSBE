@@ -12,24 +12,28 @@
 	<div class="container">
 	<?php
 		$mysqli = new mysqli('localhost','root','','crud') or die(mysqli_error($mysqli));
-		$result = $mysqli->query("SELECT * FROM page_data") or die($mysqli->error);
+		$result = $mysqli->query("SELECT * FROM membership_data") or die($mysqli->error);
 	?>
 	<div id="tabs">
 		<nav class="nav">
 			<li class="nav-item">
-				<a class="nav-link disabled" href="#">Home</a>
+				<a class="nav-link" href="http://localhost/nsbe_db/web_pages/nsbe_home.php">Home</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link disabled" href="#">About</a>
+				<a class="nav-link" href="http://localhost/nsbe_db/web_pages/nsbe_about.php">About</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link disabled" href="#">Membership</a>
+				<a class="nav-link" href="http://localhost/nsbe_db/web_pages/nsbe_memshippage.php">Membership</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contact</a>
+				<a class="nav-link" href="http://localhost/nsbe_db/web_pages/nsbe_contact.php" tabindex="-1" aria-disabled="true">Contact</a>
 			</li>
 		</nav>
 	</div>
+	<div >
+		<h1 class="justify-content-center">Membership for the Ole Miss NSBE Chapter</h1>
+	</div>
+
 <table class="table table table-borderless">
 	<!--thead>
 			<tr>
