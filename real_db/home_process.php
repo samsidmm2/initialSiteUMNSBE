@@ -7,21 +7,39 @@ $mysqli = new mysqli('localhost', 'root', '', 'crud') or die(mysqli_error($mysql
 $id = 0;
 $update = false;
 //For home page
+//$home_image = '';
 $home_heading = '';
 $home_paragraph = '';
 
+
 if (isset($_POST['save'])){
 	//For home page
+
 	$home_heading = $_POST['home_heading'];
 	$home_paragraph = $_POST['home_paragraph'];
+	$home_image = $_FILES['home_image']['name'];
+	$upload_dir = "upload/";
+	$upload=$upload_dir.$home_image;
+	
+	if (move_uploaded_file($_FILES['home_image']['tmp_name'], $upload)) {
+		$_SESSION['message'] = "Record has been saved!";
+		$_SESSION['msg_type'] = "success";
+  	}else{
+  		$_SESSION['message'] = "Record has not been saved!";
+		$_SESSION['msg_type'] = "failure";
+  	}
+  	echo $upload;
+	$mysqli->query("INSERT INTO home_data (home_heading, home_paragraph, home_image) VALUES('$home_heading','$home_paragraph','$home_image')") or die($mysqli->error);//for home and membership pages
 
-	$mysqli->query("INSERT INTO home_data (home_heading, home_paragraph) VALUES('$home_heading','$home_paragraph')") or die($mysqli->error);//for home and membership pages
+		
+		$_SESSION['message'] = "Record has been saved!";
+		$_SESSION['msg_type'] = "success";
 
-	$_SESSION['message'] = "Record has been saved!";
-	$_SESSION['msg_type'] = "success";
+		header("location: home_crud.php");
+	}
 
-	header("location: web_crud.php");
-}
+	
+
 
 if (isset($_GET['delete'])){
 	$id = $_GET['delete'];
@@ -30,7 +48,7 @@ if (isset($_GET['delete'])){
 	$_SESSION['message'] = "Record has been deleted!";
 	$_SESSION['msg_type'] = "danger";
 
-	header("location: web_crud.php");
+	header("location: home_crud.php");
 
 }
 
@@ -43,6 +61,8 @@ if (isset($_GET['edit'])){
 		//for home Page
 		$home_heading = $row['home_heading'];
 		$home_paragraph = $row['home_paragraph'];
+		$home_image = $row['home_image'];
+
 	}
 }
 
@@ -51,14 +71,14 @@ if (isset($_POST['update'])){
 	//for home Page
 	$home_heading = $row['home_heading'];
 	$home_paragraph = $row['home_paragraph'];
-
+	$home_image = $row['home_image'];
 	//for home Page
-	$mysqli->query("UPDATE home_data SET home_heading='$home_heading', home_paragraph='$home_paragraph' WHERE id=$id") or die($mysqli->error);
+	$mysqli->query("UPDATE home_data SET home_image='$home_image', home_heading='$home_heading', home_paragraph='$home_paragraph' WHERE id=$id") or die($mysqli->error);
 
 	$_SESSION['message'] = "Record has been updated";
 	$_SESSION['msg_type'] = "warning";
 
-	header('location: web_crud.php');
+	header('location: home_crud.php');
 }
 
 ?>

@@ -33,18 +33,29 @@
 		<div class="row justify-content-center">
 			<h1>CRUD Table</h1>
 		</div>
+			<div id="crud-tabs">
+		<nav class="nav">
+			<li class="nav-item">
+				<a class="nav-link" href="http://localhost/nsbe_db/real_db/home_crud.php">Home Crud</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="http://localhost/nsbe_db/real_db/web_crud.php">About Crud</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="http://localhost/nsbe_db/real_db/mempage_crud.php" tabindex="-1" aria-disabled="true">Membership Crud</a>
+			</li>
+		</nav>
+	</div>
 		<div class="row">
 			<br>
 			<br>
 			<!--Beginning of the About Page components-->
-			<h2>For The Web Page</h2>
+			<h2>For The About Page</h2>
 			<table class="table">
 				<thead>
 					<tr>
 						<th>Heading (About Page)</th>
 						<th>Paragraph (About Page)</th>
-						<th>Heading (Membership Page)</th>
-						<th>Paragraph (Membership Page)</th>	
 						<th colspan="2">Action</th>
 					</tr>
 				</thead>
@@ -54,8 +65,6 @@
 					<tr>
 						<td><?php echo $row['heading']; ?></td>
 						<td><?php echo $row['paragraph']; ?></td>
-						<td><?php echo $row['mem_heading']; ?></td>
-						<td><?php echo $row['mem_paragraph']; ?></td>	
 						<td>
 							<a href="web_crud.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Edit</a>
 							<a href="web_process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
@@ -83,15 +92,7 @@
 			</div>
 			<div class="form-group">
 				<label>Paragraph (About Page)</label>
-				<textarea name="paragraph" class="form-control form-control-lg" value="<?php echo $paragraph; ?>" placeholder="Enter the paragraph for the About Page"></textarea>
-			</div>
-			<div class="form-group">
-				<label>Heading (Membership Page)</label>
-				<input type="text" name="mem_heading" class="form-control" value="<?php echo $mem_heading; ?>" placeholder="Enter the heading for the Membership Page">
-			</div>
-			<div class="form-group">
-				<label>Paragraph Heading (Membership Page)</label>
-				<textarea name="mem_paragraph" class="form-control form-control-lg" value="<?php echo $mem_paragraph; ?>" placeholder="Enter the paragraph for the Membership Page" ></textarea>
+				<input type="text"  name="paragraph" class="form-control form-control-lg" value="<?php echo $paragraph; ?>" placeholder="Enter the paragraph for the About Page">
 			</div>
 			<div class="form-group">
 			<?php 
@@ -107,14 +108,6 @@
 <!-- end of the About Page/Membership Page Components-->
 			<br>
 			<br>
-			<!----------------------------------------------------------------------------------------------------------------------------->
-			<!----------------------------------------------------------------------------------------------------------------------------->
-			<!----------------------------------------------------------------------------------------------------------------------------->
-			
-			<div class="container">
-
-			</div>
-			</div>
 	</div>
 </body>
 </html>
