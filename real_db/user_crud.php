@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-	<?php require_once 'home_process.php'; ?>
+	<?php require_once 'user_process.php'; ?>
 	<?php 
 
 	if (isset($_SESSION['message'])): ?>
@@ -24,16 +24,16 @@
 	<div class="container">
 	<?php 
 		$mysqli = new mysqli('localhost','root','','crud') or die(mysqli_error($mysqli));
-		$result = $mysqli->query("SELECT id, home_heading, home_paragraph FROM home_data") or die($mysqli->error); //for Home page
-		//pre_r($result);
-		//pre_r($result->fetch_assoc());
-		//pre_r($result->fetch_assoc());
+		$result12 = $mysqli->query("SELECT * FROM user") or die($mysqli->error); //for about page
+		//pre_r($result12);
+		//pre_r($result12->fetch_assoc());
+		//pre_r($result12->fetch_assoc());
 		?>
 
 		<div class="row justify-content-center">
 			<h1>CRUD Table</h1>
 		</div>
-		<div id="crud-tabs">
+			<div id="crud-tabs">
 		<nav class="nav">
 			<li class="nav-item">
 				<a class="nav-link" href="http://localhost/nsbe_db/real_db/home_crud.php">Home Crud</a>
@@ -49,25 +49,31 @@
 		<div class="row">
 			<br>
 			<br>
-			<!--Beginning of the Home Page components-->
-			<h2>For The Home Page</h2>
+			<!--Beginning of the About Page components-->
+			<h2>For The List of Users</h2>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Heading</th>
-						<th>Paragraph</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Username</th>
+						<th>Account Type</th>
+						<th>Email</th>
 						<th colspan="2">Action</th>
 					</tr>
 				</thead>
 
 			<?php
-				while ($row = $result->fetch_assoc()): ?>
+				while ($row = $result12->fetch_assoc()): ?>
 					<tr>
-						<td><?php echo $row['home_heading']; ?></td>
-						<td><?php echo $row['home_paragraph']; ?></td>
+						<td><?php echo $row['user_fname']; ?></td>
+						<td><?php echo $row['user_lname']; ?></td>
+						<td><?php echo $row['username']; ?></td>
+						<td><?php echo $row['account_type']; ?></td>
+						<td><?php echo $row['user_email']; ?></td>
 						<td>
-							<a href="home_crud.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Edit</a>
-							<a href="home_process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
+							<a href="user_crud.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Edit</a>
+							<a href="user_process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
 						</td>	
 					</tr>
 			<?php endwhile; ?>		
@@ -82,19 +88,30 @@
 		}
 		?>
 
-	<div class=" justify-content-center" >
-	<form action="home_process.php" method="POST" enctype="multipart/form-data">
+	<div class=" justify-content-center">
+	<form action="user_process.php" method="POST">
 		<input type="hidden" name="id" value="<?php echo $id; ?>">
 			<div class="form-group">
-				<!--For Home Page-->
-				<label>Heading</label>
-				<input type="text" name="home_heading" class="form-control" value="<?php echo $home_heading; ?>" placeholder="Enter the heading for the Home Page">
+				<!--For User Info Page-->
+			<label>First Name</label>
+				<input type="text" name="user_fname" class="form-control" value="<?php echo $user_fname; ?>" placeholder="Enter the First Name of the Members">
 			</div>
 			<div class="form-group">
-				<label>Paragraph</label>
-				<input type="text" name="home_paragraph" class="form-control form-control-lg" value="<?php echo $home_paragraph; ?>" placeholder="Enter the paragraph for the Home Page">
+				<label>Last Name</label>
+				<input type="text"  name="user_lname" class="form-control form-control-lg" value="<?php echo $user_lname; ?>" placeholder="Enter the Last Name of the Members">
 			</div>
-
+			<div class="form-group">
+				<label>Username</label>
+				<input type="text"  name="username" class="form-control form-control-lg" value="<?php echo $username; ?>" placeholder="Enter the Username for the Member">
+			</div>
+			<div class="form-group">
+				<label>Account Type</label>
+				<input type="text"  name="account_type" class="form-control form-control-lg" value="<?php echo $account_type; ?>" placeholder="Enter the Account Type for the Member">
+			</div>
+			<div class="form-group">
+				<label>Email</label>
+				<input type="text"  name="user_email" class="form-control form-control-lg" value="<?php echo $user_email; ?>" placeholder="Enter the Email for the Member">
+			</div>
 			<div class="form-group">
 			<?php 
 			if ($update == true):
@@ -106,10 +123,9 @@
 		</div>
 		</form>
 	</div>
-<!-- end of the Home Page Components-->
+<!-- end of the About Page/Membership Page Components-->
 			<br>
 			<br>
-			</div>
 	</div>
 </body>
 </html>
