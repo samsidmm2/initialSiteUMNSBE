@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./style/style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width-device-width, initial-scale=1.0">
+	<title>Document</title>
+
+</head>
+<body class="bg-success">
+	<script type="text/javascript" src="./js/main.js"></script> 
+	<nav>
+	<h3>Welcome</h3>
+	<ul class=" bg-light">
+		<li><a href="http://localhost/nsbe_db/web_pages/nsbe_home.php">Home</a></li>
+		<?php if(isset($user)) { ?>
+			<li><a href="profile.php">Profile</a></li>
+			<li><a href="logout.php">Logout</a></li>
+		<?php } else { ?>
+		<li><a href="register.php">Register</a></li>
+		<li><a href="login.php">Login</a></li>
+		<?php } ?>
+
+		<!--li><a href="index.php">Home</a></li>
+		<li><a href="register.php">Register</a></li>
+		<li><a href="login.php">Login</a></li-->
+	</ul>
+	</nav>

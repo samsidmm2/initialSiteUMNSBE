@@ -1,3 +1,29 @@
+<?php
+session_start();
+
+if (isset($_SESSION['userId'])) {
+	require('./nsbeloginsys/config/dbase.php');
+
+	$userId = $_SESSION['userId'];
+	//echo $userId;
+	$stmt = $pdo -> prepare("SELECT * from users where id = ?");
+	$stmt -> execute([$userId]);
+	$user = $stmt -> fetch();
+/*
+	if($user->account_type ==='regular')
+	{
+		$message = "You have a regular account";
+	}
+	*/
+}
+
+
+
+
+
+//echo "Run Success <br>";
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +54,13 @@
 				<a class="nav-link text-dark" href="http://localhost/nsbe_db/web_pages/nsbe_memshippage.php">Membership</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link text-dark" href="http://localhost/nsbe_db/web_pages/nsbe_contact.php" tabindex="-1" aria-disabled="true">Contact</a>
+				<a class="nav-link text-dark" href="http://localhost/nsbe_db/web_pages/nsbe_contact.php" >Contact</a>
+			</li>
+						<li class="nav-item justify-content-end">
+				<a class="nav-link text-dark" href="http://localhost/nsbe_db/nsbeloginsys/login.php" tabindex="-1" aria-disabled="true">Login</a>
+			</li>
+			<li class="nav-item justify-content-end">
+				<a class="nav-link text-dark" href="http://localhost/nsbe_db/nsbeloginsys/register.php" tabindex="-1" aria-disabled="true">Register</a>
 			</li>
 		</nav>
 	</div>
@@ -60,6 +92,7 @@
 	</form>
 	  <br>
   <br>
+  <?php include('templates\footers.php'); ?>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 					crossorigin="anonymous"></script>
 </body>
