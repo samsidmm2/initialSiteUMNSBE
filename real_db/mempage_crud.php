@@ -35,14 +35,22 @@
 		</div>
 					<div id="crud-tabs">
 		<nav class="nav">
+		<li class="nav-item">
+				<a class="nav-link" href="http://localhost/nsbe_db/real_db/home_crud.php">Home Crud (For Heading and Paragraph)</a>
+			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="http://localhost/nsbe_db/real_db/home_crud.php">Home Crud</a>
+				<a class="nav-link" href="http://localhost/nsbe_db/real_db/home_imagecrud.php">Home Crud (For Image)</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="http://localhost/nsbe_db/real_db/web_crud.php">About Crud</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="http://localhost/nsbe_db/real_db/mempage_crud.php" tabindex="-1" aria-disabled="true">Membership Crud</a>
+			</li>
+			<li>
+				<form method="post" action="mempage_export.php" align="center">  
+                     <input type="submit" name="export" value="CSV Export" class="btn btn-link" />  
+                </form>  
 			</li>
 		</nav>
 	</div>

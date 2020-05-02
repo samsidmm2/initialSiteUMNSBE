@@ -10,7 +10,6 @@ $update = false;
 $home_heading = '';
 $home_paragraph = '';
 
-
 if (isset($_POST['save'])){
 	//For home page
 	$home_heading = $_POST['home_heading'];
@@ -23,9 +22,6 @@ if (isset($_POST['save'])){
 
 	header("location: home_crud.php");
 }
-
-	
-
 
 if (isset($_GET['delete'])){
 	$id = $_GET['delete'];
@@ -53,8 +49,8 @@ if (isset($_GET['edit'])){
 if (isset($_POST['update'])){
 	$id = $_POST['id'];
 	//for home Page
-	$home_heading = $row['home_heading'];
-	$home_paragraph = $row['home_paragraph'];
+	$home_heading = $_POST['home_heading'];
+	$home_paragraph = $_POST['home_paragraph'];
 
 	//for home Page
 	$mysqli->query("UPDATE home_data SET home_heading='$home_heading', home_paragraph='$home_paragraph' WHERE id=$id") or die($mysqli->error);
@@ -65,4 +61,4 @@ if (isset($_POST['update'])){
 	header('location: home_crud.php');
 }
 
-?>
+?> 
