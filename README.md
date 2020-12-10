@@ -1,2 +1,2 @@
-# initialSiteNSBE
+# initialSiteUMNSBE
 webpage for my school project
